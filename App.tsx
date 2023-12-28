@@ -7,19 +7,19 @@ import Animated, {
 import { LinearGradient } from "expo-linear-gradient";
 
 import ReText from "./components/ReText";
+import {
+  DEFAULT_HEIGHT,
+  DEFAULT_OFFSET,
+  DEFAULT_TEXT,
+  DEFAULT_WIDTH,
+  PRESSED_HEIGHT,
+  PRESSED_OFFSET,
+  PRESSED_WIDTH,
+  squeeks,
+} from "./consts";
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
-
-const DEFAULT_HEIGHT = 80;
-const DEFAULT_WIDTH = 160;
-const DEFAULT_OFFSET = 0;
-const DEFAULT_TEXT = "Tap me";
-const PRESSED_HEIGHT = 70;
-const PRESSED_WIDTH = 180;
-const PRESSED_OFFSET = DEFAULT_HEIGHT - PRESSED_HEIGHT;
-
 const config = { stiffness: 200 };
-const squeeks = ["Ouch!", "Oof!", "Eek!", "D'oh!"];
 
 export default function App() {
   const width = useSharedValue(DEFAULT_WIDTH);
@@ -42,9 +42,9 @@ export default function App() {
   };
 
   const handlePressOut = () => {
-    width.value = withSpring(160);
-    height.value = withSpring(80);
-    offset.value = withSpring(0);
+    width.value = withSpring(DEFAULT_WIDTH);
+    height.value = withSpring(DEFAULT_HEIGHT);
+    offset.value = withSpring(DEFAULT_OFFSET);
     text.value = DEFAULT_TEXT;
   };
 
@@ -56,7 +56,7 @@ export default function App() {
           colors={["#B58DF1", "#782AEB"]}
           style={[styles.button, animatedStyles]}
         >
-          <ReText style={styles.buttonText} text={text} />
+          <ReText text={text} style={styles.buttonText} />
         </AnimatedLinearGradient>
       </Pressable>
     </View>
@@ -67,14 +67,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     flexDirection: "column",
   },
   button: {
-    width: 160,
-    height: 80,
-    backgroundColor: "black",
-    margin: 30,
     borderRadius: 16,
     alignItems: "center",
     justifyContent: "center",
@@ -83,6 +79,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     pointerEvents: "none",
+    width: DEFAULT_WIDTH,
+    textAlign: "center",
     fontFamily: Platform.OS === "ios" ? "Menlo" : "monospace",
   },
   gradient: {
