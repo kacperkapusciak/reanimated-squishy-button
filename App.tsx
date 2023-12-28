@@ -5,6 +5,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { LinearGradient } from "expo-linear-gradient";
+import * as Haptics from "expo-haptics";
 
 import ReText from "./components/ReText";
 import {
@@ -35,6 +36,7 @@ export default function App() {
   }));
 
   const handlePressIn = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     width.value = withSpring(PRESSED_WIDTH, config);
     height.value = withSpring(PRESSED_HEIGHT, config);
     offset.value = withSpring(PRESSED_OFFSET, config);
