@@ -36,7 +36,7 @@ export default function App() {
   }));
 
   const handlePressIn = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    Haptics.impactAsync();
     width.value = withSpring(PRESSED_WIDTH, config);
     height.value = withSpring(PRESSED_HEIGHT, config);
     offset.value = withSpring(PRESSED_OFFSET, config);
