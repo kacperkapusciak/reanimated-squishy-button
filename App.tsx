@@ -15,7 +15,7 @@ import {
   PRESSED_HEIGHT,
   PRESSED_OFFSET,
   PRESSED_WIDTH,
-  squeeks,
+  squeaks,
 } from "./consts";
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
@@ -38,7 +38,7 @@ export default function App() {
     width.value = withSpring(PRESSED_WIDTH, config);
     height.value = withSpring(PRESSED_HEIGHT, config);
     offset.value = withSpring(PRESSED_OFFSET, config);
-    text.value = squeeks[Math.floor(Math.random() * squeeks.length)];
+    text.value = squeaks[Math.floor(Math.random() * squeaks.length)];
   };
 
   const handlePressOut = () => {

@@ -6,4 +6,4 @@ export const PRESSED_HEIGHT = 70;
 export const PRESSED_WIDTH = 180;
 export const PRESSED_OFFSET = DEFAULT_HEIGHT - PRESSED_HEIGHT;
 
-export const squeeks = ["Ouch!", "Oof!", "Eek!", "D'oh!"];
+export const squeaks = ["Ouch!", "Oof!", "Eek!", "Ahh!", "Ow!", "Ugh!", "Ay!"];
