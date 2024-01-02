@@ -1,4 +1,4 @@
-import { View, Pressable, StyleSheet, Platform } from "react-native";
+import { View, Pressable, StyleSheet, Platform, Text } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -20,7 +20,7 @@ import {
 } from "./consts";
 
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
-const config = { stiffness: 200 };
+const config = { stiffness: 300 };
 
 export default function App() {
   const width = useSharedValue(DEFAULT_WIDTH);
@@ -44,9 +44,9 @@ export default function App() {
   };
 
   const handlePressOut = () => {
-    width.value = withSpring(DEFAULT_WIDTH);
-    height.value = withSpring(DEFAULT_HEIGHT);
-    offset.value = withSpring(DEFAULT_OFFSET);
+    width.value = withSpring(DEFAULT_WIDTH, config);
+    height.value = withSpring(DEFAULT_HEIGHT, config);
+    offset.value = withSpring(DEFAULT_OFFSET, config);
     text.value = DEFAULT_TEXT;
   };
 
